@@ -13,17 +13,17 @@ import { InventoryFormEdit } from "./pages/InventoryFormEdit";
 function App() {
 
 
-  const [inventory, setInventory] = useState([
-    {
-      id: 1,
-      productName: "JBL 305P mkII",
-      productDescription: "Active Studio Monitor",
-      productPrice: 199.99,
-      productQuantity: 2,
-      productCondition: "Near Mint",
-    }
-  ]);
+  const inventoryFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]" )
 
+  const [inventory, setInventory] = useState<any>(() => {
+    return JSON.parse(localStorage.getItem("inventory") || "[]")
+  })
+
+  console.log(inventoryFromLocalStorage)
+
+  useEffect(() => {
+    localStorage.setItem("inventory", JSON.stringify(inventory))
+  }, [inventory])
  
 
 

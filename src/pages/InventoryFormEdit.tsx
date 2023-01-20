@@ -28,13 +28,6 @@ export const InventoryFormEdit = (props: Props) => {
   const id = Number(params.id);
 
 
-
-
-  // useEffect(() => {
-  //   checkId();
-  // }, [id])
-
-
   const navigateToInventory = () => {
     navigate("/inventory");
   };
@@ -74,6 +67,13 @@ export const InventoryFormEdit = (props: Props) => {
     resolver: yupResolver(schema),
   });
 
+  const checkId = (id: number) => {
+    const check = (obj: { id: number; }) => obj.id === id;
+    return props.inventory.some(check);
+  }
+
+  checkId(id);
+
   const onSubmit = (data: any) => {
       data.id = id;
         //ADD EDITSTATE
@@ -88,7 +88,8 @@ export const InventoryFormEdit = (props: Props) => {
   };
 
   return (
-    <div className="flex">
+    <div>
+      {checkId(id) === true ?     <div className="flex">
     <Sidebar />
     <div className="w-full mt-20 ">
       <form
@@ -155,6 +156,7 @@ export const InventoryFormEdit = (props: Props) => {
         </div>
       </form>
     </div>
+  </div>: <h1 className="text-center">FALSE</h1>}
   </div>
   );
 };
