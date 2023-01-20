@@ -4,6 +4,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
 import "../../../src/App.css"
 
+// SINGLE ITEM FOR INVENTORY PAGE
+
 interface Props {
   id: number;
   descriptionOne: string;
