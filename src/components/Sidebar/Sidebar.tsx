@@ -45,10 +45,10 @@ export const Sidebar = () => {
               <span className="text-white">Users</span>
             </li>
           </Link>
-          <Link to="/contact">
+          <Link to="/contacts">
             <li className="flex flex-row items-center p-4 gap-5 cursor-pointer hover:bg-sky-800">
               <ContactPageIcon sx={{ color: color }} />
-              <span className="text-white">Contact</span>
+              <span className="text-white">Contacts</span>
             </li>
           </Link>
         </ul>

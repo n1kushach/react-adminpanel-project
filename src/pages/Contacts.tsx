@@ -4,14 +4,16 @@ import { MainView } from "../components/MainView/MainView";
 import { UserObj } from "../Interfaces/UserObj";
 import { useNavigate } from "react-router-dom";
 import {SingleItemUser} from "../components/SingleItem/SingleItemUser";
+import { ContactObj } from "../Interfaces/ContactObj";
+import { SingleItemContact } from "../components/SingleItem/SingleItemContact";
 
 interface Props {
-  users: UserObj[];
-  setUsers: React.Dispatch<React.SetStateAction<UserObj[]>>;
+  contacts: ContactObj[];
+  setContacts: React.Dispatch<React.SetStateAction<ContactObj[]>>;
 }
 
 
-export const Users = ({users, setUsers} : Props) => {
+export const Contacts = ({contacts, setContacts} : Props) => {
 
   let navigate = useNavigate();
 
@@ -19,11 +21,11 @@ export const Users = ({users, setUsers} : Props) => {
     <div className="flex">
       <Sidebar />
       <div className="flex-col w-full  ">
-        <button className="bg-stone-600 h-min" onClick={() => {navigate('/editUser')}}>Add User</button>
+        <button className="bg-stone-600 h-min" onClick={() => {navigate('/editContact')}}>Add Contact</button>
         <div className="flex flex-col">
-          {users.map((user) => {
+          {contacts.map((contact) => {
             return (
-              <SingleItemUser id={user.id} descriptionOne={user.firstName} descriptionTwo={user.lastName} users={users} setUsers={setUsers}/>
+              <SingleItemContact id={contact.id} descriptionOne={contact.personalId} descriptionTwo={contact.email} contacts={contacts} setContacts={setContacts}/>
             );
           })}
         </div>
