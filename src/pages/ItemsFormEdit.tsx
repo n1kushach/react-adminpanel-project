@@ -1,32 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Sidebar } from "../components/Sidebar/Sidebar";
 import { useState } from "react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
-
-// ADD REACT SELECT
-// import Select from "react-select"
+import { useNavigate, useParams } from "react-router-dom";
 
 interface Props {
   items: any;
   setItems: React.Dispatch<React.SetStateAction<any>>;
 }
 
-export const ItemsForm = (props: Props) => {
+export const ItemsFormEdit = (props: Props) => {
   const navigate = useNavigate();
+  const params = useParams();
+  const id = Number(params.id);
+
+
   const navigateToItems = () => {
     navigate("/items");
   };
-
-// FOR REACT SELECT
-
-  // const options = [
-  //   {value: "Good", label: "good"},
-  //   {value: "Bad", label: "Bad"},
-  //   {value: "Excellent", label: "Excellent"},
-  // ]
 
   const schema = yup.object().shape({
     itemName: yup.string().required("Product name is required!"),
@@ -61,18 +54,29 @@ export const ItemsForm = (props: Props) => {
     resolver: yupResolver(schema),
   });
 
+  const checkId = (id: number) => {
+    const check = (obj: { id: number; }) => obj.id === id;
+    return props.items.some(check);
+  }
+
+  checkId(id);
+
   const onSubmit = (data: any) => {
-    data.id =
-    props.items.length === 0
-      ? 1
-      : props.items[props.items.length - 1].id + 1;
-    props.setItems([...props.items, data]);
+      data.id = id;
+        //ADD EDITSTATE
+        props.setItems(
+          [...props.items].map((object) => {
+            if (object.id == id) {
+              return data;
+            } else return object;
+          })
+        );
     navigateToItems();
   };
 
-
   return (
-    <div className="flex">
+    <div>
+      {checkId(id) === true ?     <div className="flex">
     <Sidebar />
     <div className="w-full mt-20 ">
       <form
@@ -83,7 +87,7 @@ export const ItemsForm = (props: Props) => {
           <input
             className="bg-indigo-500 p-2 text-white placeholder:text-white placeholder:text-sm rounded-md border-white"
             type="text"
-            placeholder="Item name..."
+            placeholder="Edit item name..."
             {...register("itemName")}
           />
           <p className="text-red-600">{errors.itemName?.message}</p>
@@ -138,8 +142,7 @@ export const ItemsForm = (props: Props) => {
         </div>
       </form>
     </div>
+  </div>: <h1 className="text-center">FALSE</h1>}
   </div>
-  )
-}
-
-export default ItemsForm
+  );
+};

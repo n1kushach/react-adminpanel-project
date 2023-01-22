@@ -22,7 +22,7 @@ export const Items = (props : Props) => {
           </Link>
           <div className="wrapper customgrid gap-x-4 gap-y-4">
             {props.items.map((item: any) => {
-              return <OneCard itemName={item.itemName} itemStorage={item.itemStorage} itemPrice={item.itemPrice} itemPicture={item.itemPicture} itemCondition={item.itemCondition}/>
+              return <OneCard items={props.items} setItems={props.setItems} id={item.id} itemName={item.itemName} itemStorage={item.itemStorage} itemPrice={item.itemPrice} itemPicture={item.itemPicture} itemCondition={item.itemCondition}/>
             })}
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SetStateAction } from "react";
 import "../../../src/App.css";
 
 // SINGLE ITEM FOR ITEMS PAGE
@@ -9,9 +9,18 @@ interface Props {
   itemPrice: number;
   itemCondition: string;
   itemPicture: string;
+  id: number;
+  items: any;
+  setItems: React.Dispatch<SetStateAction<any>>;
 }
 
 export const OneCard = (props: Props) => {
+
+  const handleDelete = (id: number) => {
+    const newItems = props.items.filter((item: any) => item.id !== id);
+    props.setItems(newItems);
+  }
+
   return (
     <div className="flex justify-center border p-2 rounded-lg">
       <div className="flex flex-col items-center gap-2">
@@ -23,7 +32,7 @@ export const OneCard = (props: Props) => {
         <h2>Condition - {props.itemCondition}</h2>
         <div className="flex flex-row justify-center gap-5 mt-5">
           <button className="bg-slate-400 p-2 rounded-sm text-white">Edit</button>
-          <button className="bg-red-600 p-2 text-white rounded-sm">Delete</button>
+          <button onClick={() => handleDelete(props.id)} className="bg-red-600 p-2 text-white rounded-sm">Delete</button>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import { Users } from "./pages/Users";
 import { InventoryForm } from "./pages/InventoryForm";
 import { InventoryFormEdit } from "./pages/InventoryFormEdit";
 import ItemsForm from "./pages/ItemsForm";
+import { ItemsFormEdit } from "./pages/ItemsFormEdit";
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
   }, [inventory])
 
   const [items, setItems] = useState<any>(() => {
-    return JSON.parse(localStorage.getItem("inventory") || "[]")
+    return JSON.parse(localStorage.getItem("items") || "[]")
   })
 
   useEffect(() => {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/inventoryForm/:id" element={<InventoryFormEdit inventory={inventory} setInventory={setInventory}/>}/>
           <Route path="/items" element={<Items items={items} setItems={setItems}/>} />
           <Route path="/itemsForm" element={<ItemsForm items={items} setItems={setItems}/>}/>
+          <Route path="/itemsForm/:id" element={<ItemsFormEdit items={items} setItems={setItems}/>}/>
           <Route path="/users" element={<Users/>} />
         </Routes>
       </Router>
