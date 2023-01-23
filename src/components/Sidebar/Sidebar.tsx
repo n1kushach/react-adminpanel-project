@@ -20,7 +20,7 @@ export const Sidebar = () => {
 
   return (
     <div className="w-auto md:h-screen md:w-[350px] bg-gray-700">
-      <Link to="/">
+      <Link to="/dashboard">
         <div className="text-center mt-5">
           <span className="text-white mb-1">ADMIN PANEL</span>
         </div>
