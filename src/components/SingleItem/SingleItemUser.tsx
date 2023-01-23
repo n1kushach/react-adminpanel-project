@@ -14,11 +14,9 @@ interface Props {
 
 export const SingleItemUser = (props: Props) => {
   return (
-    <div className="bg-slate-300 flex flex-row items-center justify-around w-2/3 p-5 mt-20 mx-auto rounded-lg">
-      <div>
-        <span>{props.id}</span>
-      </div>
+    <div className="bg-slate-300 flex flex-row items-center justify-between w-2/3 p-5 mt-20 mx-auto min-w-[425px] rounded-lg ">
       <div className="flex flex-row gap-5">
+        <span>{props.id}</span>
         <span>{props.descriptionOne}</span>
         <span>{props.descriptionTwo}</span>
       </div>

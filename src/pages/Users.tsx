@@ -16,7 +16,7 @@ export const Users = ({users, setUsers} : Props) => {
   let navigate = useNavigate();
 
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
       <Sidebar />
       <div className="flex-col w-full  ">
         <button className="bg-stone-600 h-min" onClick={() => {navigate('/editUser')}}>Add User</button>

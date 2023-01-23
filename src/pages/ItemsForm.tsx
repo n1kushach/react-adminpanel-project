@@ -72,7 +72,7 @@ export const ItemsForm = (props: Props) => {
 
 
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
     <Sidebar />
     <div className="w-full mt-20 ">
       <form

@@ -15,29 +15,14 @@ import {EditUserId} from "./pages/EditUserId";
 import { ContactObj } from "./Interfaces/ContactObj";
 import { EditContact } from "./pages/EditContact";
 import { EditContactId } from "./pages/EditContactId";
-
-function App() {
-
-  const [users, setUsers] = React.useState<UserObj[]>(() => {
-    return JSON.parse(localStorage.getItem('users') || '[]')
-  })
-
-  React.useEffect(() => {
-    localStorage.setItem('users', JSON.stringify(users))
-  }, [users])
-
-  const [contacts, setContacts] = React.useState<ContactObj[]>(() => {
-    return JSON.parse(localStorage.getItem('contacts') || '[]')
-  })
-
-  React.useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts))
-  }, [contacts])
-
 import { InventoryForm } from "./pages/InventoryForm";
 import { InventoryFormEdit } from "./pages/InventoryFormEdit";
 import ItemsForm from "./pages/ItemsForm";
 import { ItemsFormEdit } from "./pages/ItemsFormEdit";
+
+
+
+ 
 
 function App() {
 
@@ -58,6 +43,23 @@ function App() {
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items))
   }, [items])
+
+  const [users, setUsers] = React.useState<UserObj[]>(() => {
+    return JSON.parse(localStorage.getItem('users') || '[]')
+  })
+
+  React.useEffect(() => {
+    localStorage.setItem('users', JSON.stringify(users))
+  }, [users])
+
+  const [contacts, setContacts] = React.useState<ContactObj[]>(() => {
+    return JSON.parse(localStorage.getItem('contacts') || '[]')
+  })
+
+  React.useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts))
+  }, [contacts])
+
 
 
 
