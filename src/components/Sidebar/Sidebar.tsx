@@ -7,9 +7,16 @@ import ContactPageIcon from "@mui/icons-material/ContactPage";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { red } from "@mui/material/colors";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Sidebar = () => {
   const color = red[50];
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    localStorage.clear()
+    navigate("/")
+  }
 
   return (
     <div className="h-screen w-[350px] bg-gray-700">
@@ -52,6 +59,9 @@ export const Sidebar = () => {
             </li>
           </Link>
         </ul>
+      </div>
+      <div onClick={() => handleLogOut()} className="text-center mt-5 text-white cursor-pointer">
+        LOG OUT
       </div>
     </div>
   );

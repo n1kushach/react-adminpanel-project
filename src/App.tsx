@@ -11,6 +11,7 @@ import { InventoryForm } from "./pages/InventoryForm";
 import { InventoryFormEdit } from "./pages/InventoryFormEdit";
 import ItemsForm from "./pages/ItemsForm";
 import { ItemsFormEdit } from "./pages/ItemsFormEdit";
+import { Login } from "./pages/Login";
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Login/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/inventory" element={<Inventory inventory={inventory} setInventory={setInventory}/>} />
