@@ -11,7 +11,7 @@ interface Props {
 
 export const Items = (props : Props) => {
   return (
-    <div className="flex">
+    <div className="flex ">
       <Sidebar />
       <div className="w-full mt-20 p-2">
         <div className="w-3/4 mx-auto">

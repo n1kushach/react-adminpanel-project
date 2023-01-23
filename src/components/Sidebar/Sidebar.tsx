@@ -19,43 +19,43 @@ export const Sidebar = () => {
   }
 
   return (
-    <div className="h-screen w-[350px] bg-gray-700">
+    <div className="w-auto md:h-screen md:w-[350px] bg-gray-700">
       <Link to="/">
         <div className="text-center mt-5">
           <span className="text-white mb-1">ADMIN PANEL</span>
         </div>
       </Link>
       <hr className="mt-5"></hr>
-      <div className="mt-5">
-        <ul>
+      <div className="mt-5 md:flex-col flex flex-row">
+        <ul className="flex flex-row gap-10 md:flex-col mx-auto md:mx-0">
           <Link to="/dashboard">
             <li className="flex flex-row items-center p-4 gap-5 cursor-pointer hover:bg-sky-800">
               <HomeIcon sx={{ color: color }} />
-              <span className="text-white">Dashboard</span>
+              <span className="hidden md:flex text-white">Dashboard</span>
             </li>
           </Link>
           <Link to="/inventory">
             <li className="flex flex-row items-center p-4 gap-5 cursor-pointer hover:bg-sky-800">
               <InventoryIcon sx={{ color: color }} />
-              <span className="text-white">Inventory</span>
+              <span className="hidden md:flex text-white">Inventory</span>
             </li>
           </Link>
           <Link to="/items">
             <li className="flex flex-row items-center p-4 gap-5 cursor-pointer hover:bg-sky-800">
               <CategoryIcon sx={{ color: color }} />
-              <span className="text-white">Items</span>
+              <span className="text-white hidden md:flex">Items</span>
             </li>
           </Link>
           <Link to="/users">
             <li className="flex flex-row items-center p-4 gap-5 cursor-pointer hover:bg-sky-800">
               <GroupIcon sx={{ color: color }} />
-              <span className="text-white">Users</span>
+              <span className="text-white hidden md:flex">Users</span>
             </li>
           </Link>
-          <Link to="/contact">
+          <Link to="/contacts">
             <li className="flex flex-row items-center p-4 gap-5 cursor-pointer hover:bg-sky-800">
               <ContactPageIcon sx={{ color: color }} />
-              <span className="text-white">Contact</span>
+              <span className="text-white hidden md:flex">Contacts</span>
             </li>
           </Link>
         </ul>

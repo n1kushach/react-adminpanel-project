@@ -23,7 +23,7 @@ interface Props {
 
 export const Inventory = (props: Props) => {
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
       <Sidebar />
       <div className="w-full">
         <div className="mx-auto w-3/4">

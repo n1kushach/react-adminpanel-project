@@ -76,7 +76,7 @@ export const ItemsFormEdit = (props: Props) => {
 
   return (
     <div>
-      {checkId(id) === true ?     <div className="flex">
+      {checkId(id) === true ?     <div className="flex flex-col md:flex-row">
     <Sidebar />
     <div className="w-full mt-20 ">
       <form

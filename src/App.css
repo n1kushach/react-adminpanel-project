@@ -1,8 +1,3 @@
-.customgrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.customImg {
-  height: 150px;
+form p {
+    color: red;
 }
